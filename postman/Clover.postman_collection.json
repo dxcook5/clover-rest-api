@@ -1,0 +1,838 @@
+{
+	"info": {
+		"_postman_id": "bafe4276-4c55-4d04-ae0d-15228d53b02e",
+		"name": "Clover",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Merchants",
+			"item": []
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Get all customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{mId_url}}/customers",
+							"host": [
+								"{{mId_url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{mId_url}}/customers/FGG9ZGJXYHWH2",
+							"host": [
+								"{{mId_url}}"
+							],
+							"path": [
+								"customers",
+								"FGG9ZGJXYHWH2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"\",\n\t\"lastName\": \"\",\n\t\"metadata\": {\n\t\t\"dobDay\": \"\",\n\t\t\"dobYear\": \"\",\n\t\t\"dobMonth\": \"\"\n\t},\n\t\"emailAddresses\": [\n\t\t{\n\t\t\t\"emailAddress\": \"\"\n\t\t}\n\t]\n}\n"
+						},
+						"url": {
+							"raw": "{{mId_url}}/customers",
+							"host": [
+								"{{mId_url}}"
+							],
+							"path": [
+								"customers"
+							]
+						},
+						"description": "Creates a customer with the following info: first, last, DOB, and email"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"addresses\": [\n    {\n      \"zip\": \"\",\n      \"country\": \"\",\n      \"address3\": \"\",\n      \"address2\": \"\",\n      \"city\": \"\",\n      \"address1\": \"\",\n      \"state\": \"\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{mId_url}}/customers/",
+							"host": [
+								"{{mId_url}}"
+							],
+							"path": [
+								"customers",
+								""
+							]
+						},
+						"description": "Updates a customer by adding an address\n\nSpecify a customer ID at the end of the URL\n\n[Docs](https://www.clover.com/api_docs/#!/customers/DelegatedUpdateCustomer)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a customer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{mId_url}}/customers/DRHS6DTPRSFRA",
+							"host": [
+								"{{mId_url}}"
+							],
+							"path": [
+								"customers",
+								"DRHS6DTPRSFRA"
+							]
+						},
+						"description": "Removes an existing customer\n\nSpecify a customer ID at the end of the URL\n\n[Docs](https://www.clover.com/api_docs/#!/customers/DelegatedDeleteCustomer)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Orders",
+					"item": [
+						{
+							"name": "Get a list of orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/orders?expand=lineItems",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders"
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": "lineItems"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create an order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/orders/",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										"WK6MQ9J9FK4M6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a single order",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6?expand=lineItems",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										"WK6MQ9J9FK4M6"
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": "lineItems"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "LineItems",
+					"item": [
+						{
+							"name": "Update an order with line_items - custom lineItem with price payload",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"price\": \"600\"\n}\n"
+								},
+								"url": {
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6/line_items",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										"WK6MQ9J9FK4M6",
+										"line_items"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an order with bulk_line_items",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"item\":\n\t{\n\t\t\"id\": \"JDTXA5R264YEA\"\n\t},\n\t\"item\":\n\t{\n\t\t\"id\": \"ZWPWAQZ7FR4J2\"\n\t},\n\t\"item\":\n\t{\n   \t\t\"id\": \"5ZNBQKFGMNY3M\"\n\t}\n}\n\t\t\t\n"
+								},
+								"url": {
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6/line_items",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										"WK6MQ9J9FK4M6",
+										"line_items"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an order with line_items - single item",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"item\":\n\t{\n\t\"id\": \"JDTXA5R264YEA\"\n    }\n}\n\t\t\t\n"
+								},
+								"url": {
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6/line_items",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										"WK6MQ9J9FK4M6",
+										"line_items"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Modifications",
+					"item": [
+						{
+							"name": "Apply modification to a line item",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"amount\": \"40000\",\n\t\"modifier\": {\n\t\t\"name\": \"Add diamonds\",\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6/line_items/SBPSHG161XJJA/modifications",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										"WK6MQ9J9FK4M6",
+										"line_items",
+										"SBPSHG161XJJA",
+										"modifications"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Item/Category Associations",
+					"item": [
+						{
+							"name": "Create an item/category association",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"elements\": [\r\n    { \"category\": {\"id\": \"9TTYYE234EWDT\"}, \"item\": {\"id\": \"61HW4DPKYB1Q4\"}}\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/category_items",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"category_items"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create an item/category association for multiple items",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"elements\": [\r\n    { \"category\": {\"id\": \"9TTYYE234EWDT\"}, \"item\": {\"id\": \"61HW4DPKYB1Q4\"}},\r\n    { \"category\": {\"id\": \"9TTYYE234EWDT\"}, \"item\": {\"id\": \"ERC69KY9X0N8J\"}}\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/category_items",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"category_items"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an item/category association",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"elements\": [\r\n    { \"category\": {\"id\": \"9TTYYE234EWDT\"}, \"item\": {\"id\": \"61HW4DPKYB1Q4\"}}\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/category_items?delete=true",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"category_items"
+									],
+									"query": [
+										{
+											"key": "delete",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete all associated categories for an item",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"elements\": [\r\n    { \"item\": {\"id\": \"61HW4DPKYB1Q4\"}}\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/category_items?delete=true",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"category_items"
+									],
+									"query": [
+										{
+											"key": "delete",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete all associated items for a category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"elements\": [\r\n    { \"category\": {\"id\": \"9TTYYE234EWDT\"}}\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/category_items?delete=true",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"category_items"
+									],
+									"query": [
+										{
+											"key": "delete",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8179f26e-d194-4255-87ff-7af00770fd6f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "46414b85-4c19-493e-a92d-dc32eeb550d1",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Modifiers",
+					"item": [],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "ModifierGroups",
+					"item": [
+						{
+							"name": "Get all modifier groups",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/modifier_groups",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"modifier_groups"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Items",
+					"item": [
+						{
+							"name": "Get all inventory items",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/items?expand=category",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"items"
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": "category"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a single inventory item",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/items/5ZNBQKFGMNY3M",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"items",
+										"5ZNBQKFGMNY3M"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an exisiting inventory item",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/items/5ZNBQKFGMNY3M",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"items",
+										"5ZNBQKFGMNY3M"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the stock of all inventory items",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/item_stocks",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"item_stocks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the stock of an inventory item",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/item_stocks/5ZNBQKFGMNY3M",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"item_stocks",
+										"5ZNBQKFGMNY3M"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update the stock of an inventory item",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"quantity\": 30\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/item_stocks/5ZNBQKFGMNY3M",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"item_stocks",
+										"5ZNBQKFGMNY3M"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Get all categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/categories",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all items in the Bulk supplies category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/categories/9TTYYE234EWDT/items",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"categories",
+										"9TTYYE234EWDT",
+										"items"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create an item category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"bulk_supplies\"\r\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/categories",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Pay",
+			"item": [
+				{
+					"name": "Get pay endpoint info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{v2_mId_url}}/pay/key",
+							"host": [
+								"{{v2_mId_url}}"
+							],
+							"path": [
+								"pay",
+								"key"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token_fa}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "250bfb12-657f-4489-8c2d-777a6d5c501a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cc6082f4-caa6-41d7-aba4-984fc57379ba",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
