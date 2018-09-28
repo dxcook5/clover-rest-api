@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bafe4276-4c55-4d04-ae0d-15228d53b02e",
+		"_postman_id": "46f27a06-b78f-4930-af63-8ca7087abdb1",
 		"name": "Clover",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{mId_url}}/customers",
 							"host": [
@@ -35,7 +38,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{mId_url}}/customers/FGG9ZGJXYHWH2",
 							"host": [
@@ -145,9 +151,12 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
-									"raw": "{{mId_url}}/orders?expand=lineItems",
+									"raw": "{{mId_url}}/orders?expand=discounts",
 									"host": [
 										"{{mId_url}}"
 									],
@@ -157,7 +166,7 @@
 									"query": [
 										{
 											"key": "expand",
-											"value": "lineItems"
+											"value": "discounts"
 										}
 									]
 								}
@@ -169,7 +178,10 @@
 							"request": {
 								"method": "POST",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{mId_url}}/orders/",
 									"host": [
@@ -215,9 +227,12 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
-									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6?expand=lineItems",
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6?expand=discounts",
 									"host": [
 										"{{mId_url}}"
 									],
@@ -228,7 +243,7 @@
 									"query": [
 										{
 											"key": "expand",
-											"value": "lineItems"
+											"value": "discounts"
 										}
 									]
 								}
@@ -356,6 +371,88 @@
 										"line_items",
 										"SBPSHG161XJJA",
 										"modifications"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Discounts",
+					"item": [
+						{
+							"name": "Add custom discount to order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"amount\": -1500,\n\t\"name\": \"15 dollars off\"\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6/discounts",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										"WK6MQ9J9FK4M6",
+										"discounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add existing discount to order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"discounts\": [{\n  \"discount\": {\n\t\"id\": \"KPQNFYKGQ4M98\"\n\t}\n  }]\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										"WK6MQ9J9FK4M6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a discount from an order",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/orders/WK6MQ9J9FK4M6/discounts/8ESJ9S0EKBM28",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"orders",
+										"WK6MQ9J9FK4M6",
+										"discounts",
+										"8ESJ9S0EKBM28"
 									]
 								}
 							},
@@ -558,7 +655,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{mId_url}}/modifier_groups",
 									"host": [
@@ -582,7 +682,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{mId_url}}/items?expand=category",
 									"host": [
@@ -606,7 +709,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{mId_url}}/items/5ZNBQKFGMNY3M",
 									"host": [
@@ -625,7 +731,10 @@
 							"request": {
 								"method": "POST",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{mId_url}}/items/5ZNBQKFGMNY3M",
 									"host": [
@@ -644,7 +753,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{mId_url}}/item_stocks",
 									"host": [
@@ -662,7 +774,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{mId_url}}/item_stocks/5ZNBQKFGMNY3M",
 									"host": [
@@ -714,7 +829,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{mId_url}}/categories",
 									"host": [
@@ -732,7 +850,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{mId_url}}/categories/9TTYYE234EWDT/items",
 									"host": [
@@ -775,6 +896,147 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Discounts",
+					"item": [
+						{
+							"name": "Get all discounts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/discounts",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"discounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a single discount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/discounts/66E1DZ921R2K4",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"discounts",
+										"66E1DZ921R2K4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create an amount discount",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"amount\": -15,\n\t\"name\": \"15 dollars off\"\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/discounts",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"discounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a percentage discount",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"percentage\": 15,\n\t\"name\": \"15% off\"\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/discounts",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"discounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a discount",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"amount\": -1000,\n\t\"name\": \"10 dollars off\"\n}"
+								},
+								"url": {
+									"raw": "{{mId_url}}/discounts/KPQNFYKGQ4M98",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"discounts",
+										"KPQNFYKGQ4M98"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a discount",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{mId_url}}/discounts/Z7Z0D3ZJEH3B2",
+									"host": [
+										"{{mId_url}}"
+									],
+									"path": [
+										"discounts",
+										"Z7Z0D3ZJEH3B2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		},
@@ -786,7 +1048,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{v2_mId_url}}/pay/key",
 							"host": [
